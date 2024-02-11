@@ -78,7 +78,13 @@ export default function Home() {
   return (
     <main>
       {isClient && (
-        <video autoPlay loop muted className="bg-video">
+        <video
+          autoPlay
+          loop
+          muted
+          controlsList="nofullscreen"
+          className="bg-video"
+        >
           <source src={`bg/${luckyBgNumber}.mp4`} />
         </video>
       )}
