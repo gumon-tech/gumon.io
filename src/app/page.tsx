@@ -9,6 +9,7 @@ import ReactAudioPlayer from "react-audio-player";
 
 const luckyBgNumber = random.int(1, 16);
 const luckyLogoNumber = random.int(1, 20);
+const luckyBgAudioNumber = random.int(1, 10);
 
 function getWindowDimensions() {
   if (typeof window !== "undefined") {
@@ -28,9 +29,7 @@ function getWindowDimensions() {
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [isComplete, setComplete] = useState(false);
-  const [luckyBgAudioNumber, setLuckyBgAudioNumber] = useState(
-    random.int(1, 10)
-  );
+
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
@@ -70,6 +69,10 @@ export default function Home() {
       var audio: any = document.getElementById("a1");
       audio.play();
     }
+  };
+
+  const reloadPage = () => {
+    window.location.reload();
   };
 
   return (
@@ -114,8 +117,8 @@ export default function Home() {
               src={`/sound/bg-audio/${luckyBgAudioNumber}.mp3`}
               autoPlay
               controls
-              loop={true}
-              onEnded={() => setLuckyBgAudioNumber(random.int(1, 10))}
+              // loop={true}
+              onEnded={reloadPage}
             />
           )}
         </div>
