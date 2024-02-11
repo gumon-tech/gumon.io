@@ -115,9 +115,9 @@ export default function Home() {
           {isClient && (
             <ReactAudioPlayer
               src={`/sound/bg-audio/${luckyBgAudioNumber}.mp3`}
-              autoPlay
-              controls
-              // loop={true}
+              autoPlay={true}
+              controls={true}
+              preload={"auto"}
               onEnded={reloadPage}
             />
           )}
