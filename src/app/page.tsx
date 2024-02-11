@@ -4,11 +4,13 @@ import random from "random";
 import FlipClockCountdown from "@leenguyen/react-flip-clock-countdown";
 import "@leenguyen/react-flip-clock-countdown/dist/index.css";
 const dayjs = require("dayjs");
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ReactAudioPlayer from "react-audio-player";
+import { Press_Start_2P } from "next/font/google";
+const pressStart2P = Press_Start_2P({ weight: "400", subsets: ["latin"] });
+import "animate.css";
 
 const luckyBgNumber = random.int(1, 16);
-const luckyLogoNumber = random.int(1, 20);
 const luckyBgAudioNumber = random.int(1, 10);
 
 function getWindowDimensions() {
@@ -29,6 +31,8 @@ function getWindowDimensions() {
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [isComplete, setComplete] = useState(false);
+  const [isReadyToPlay, setReadyToPlay] = useState(false);
+  const luckyLogoNumber = random.int(1, 20);
 
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
@@ -51,18 +55,9 @@ export default function Home() {
     } else if (currentWindowDimensions.width < 500) {
       setDigitBlockStyle({ width: 40, height: 60, fontSize: 30 });
     } else {
-      setDigitBlockStyle({ width: 46, height: 80, fontSize: 50 });
+      setDigitBlockStyle({ width: 44, height: 80, fontSize: 45 });
     }
   }
-
-  useEffect(() => {
-    setIsClient(true);
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const play = () => {
     if (isClient && !isMuteTick) {
@@ -74,6 +69,17 @@ export default function Home() {
   const reloadPage = () => {
     window.location.reload();
   };
+
+  useEffect(() => {
+    setIsClient(true);
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  //
 
   return (
     <main>
@@ -90,49 +96,67 @@ export default function Home() {
       )}
 
       <div className="content flex justify-center items-center flex-col text-indigo-900">
-        {isClient && (
-          <Image
-            src={`/logo/${luckyLogoNumber}.png`}
-            width={200}
-            height={200}
-            alt="Picture of the author"
-          />
-        )}
-
-        <h2 className="m-5 text-center inline-flex items-center rounded-md bg-blue-50 px-7 py-5 text-3xl font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-          {isComplete ? "WELCOME TO GUMON!" : "GUMON IS COMING SOON!"}
-        </h2>
-
-        {isClient && !isComplete && (
-          <a href="#" onClick={() => setMuteTick(!isMuteTick)}>
-            <FlipClockCountdown
-              onTick={play}
-              to={dayjs("2024-03-01 15:00:00.000+07:00")}
-              onComplete={() => setComplete(true)}
-              digitBlockStyle={digitBlockStyle}
+        {isClient && !isReadyToPlay && (
+          <a href="#" onClick={() => setReadyToPlay(true)}>
+            <div className={`${pressStart2P.className} bubble shadow bottom`}>
+              CLICK ME!
+            </div>
+            <div className="m-5"></div>
+            <Image
+              className="animate__animated animate__bounce animate__infinite	infinite animate__slow"
+              src={`/logo/${luckyLogoNumber}.png`}
+              width={200}
+              height={200}
+              alt="Picture of the GUMON"
             />
           </a>
         )}
 
-        <audio id="a1">
-          <source src="/sound/back-tick-107822.mp3" type="audio/mpeg" />
-        </audio>
-        <div className="mt-5">
-          {isClient && (
-            <ReactAudioPlayer
-              src={`/sound/bg-audio/${luckyBgAudioNumber}.mp3`}
-              autoPlay={true}
-              controls={true}
-              preload={"auto"}
-              onEnded={reloadPage}
+        {isReadyToPlay && (
+          <>
+            <Image
+              className="animate__animated animate__bounce animate__infinite	infinite animate__slow"
+              src={`/logo/${luckyLogoNumber}.png`}
+              width={200}
+              height={200}
+              alt="Picture of the GUMON"
             />
-          )}
-        </div>
-        <a href="mailto:contact@gumon.io">
-          <span className="mt-5 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-            contact@gumon.io
-          </span>
-        </a>
+            <h2
+              className={`${pressStart2P.className} bubble shadow top medium mb-10`}
+            >
+              {isComplete ? "WELCOME TO GUMON!" : "GUMON IS COMING SOON!"}
+            </h2>
+
+            <a href="#" onClick={() => setMuteTick(!isMuteTick)}>
+              <FlipClockCountdown
+                onTick={play}
+                to={dayjs("2024-03-01 15:00:00.000+07:00")}
+                onComplete={() => setComplete(true)}
+                digitBlockStyle={digitBlockStyle}
+              />
+            </a>
+
+            <audio id="a1">
+              <source src="/sound/back-tick-107822.mp3" type="audio/mpeg" />
+            </audio>
+            <div className="mt-5">
+              {isClient && (
+                <ReactAudioPlayer
+                  src={`/sound/bg-audio/${luckyBgAudioNumber}.mp3`}
+                  autoPlay
+                  controls
+                  // preload={"auto"}
+                  onEnded={reloadPage}
+                />
+              )}
+            </div>
+            <a href="mailto:contact@gumon.io">
+              <span className="mt-5 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+                contact@gumon.io
+              </span>
+            </a>
+          </>
+        )}
       </div>
     </main>
   );

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "dayjs": "^1.11.10",
     "next": "14.1.0",
     "random": "^4.1.0",
