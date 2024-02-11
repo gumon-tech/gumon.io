@@ -146,8 +146,7 @@ export default function Home() {
                   src={`/sound/bg-audio/${luckyBgAudioNumber}.mp3`}
                   autoPlay
                   controls
-                  // preload={"auto"}
-                  onEnded={reloadPage}
+                  loop
                 />
               )}
             </div>
