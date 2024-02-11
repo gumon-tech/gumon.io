@@ -90,6 +90,7 @@ export default function Home() {
           muted
           controlsList="nofullscreen"
           className="bg-video"
+          playsInline
         >
           <source src={`bg/${luckyBgNumber}.mp4`} />
         </video>
