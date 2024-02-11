@@ -5,6 +5,11 @@ import FlipClockCountdown from "@leenguyen/react-flip-clock-countdown";
 import "@leenguyen/react-flip-clock-countdown/dist/index.css";
 const dayjs = require("dayjs");
 import { useState, useEffect } from "react";
+import ReactAudioPlayer from "react-audio-player";
+
+const luckyBgNumber = random.int(1, 16);
+const luckyLogoNumber = random.int(1, 20);
+const luckyBgAudioNumber = random.int(1, 10);
 
 function getWindowDimensions() {
   if (typeof window !== "undefined") {
@@ -22,8 +27,6 @@ function getWindowDimensions() {
 }
 
 export default function Home() {
-  const luckyBgNumber = random.int(1, 16);
-  const luckyLogoNumber = random.int(1, 20);
   const [isClient, setIsClient] = useState(false);
   const [isComplete, setComplete] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState(
@@ -54,6 +57,7 @@ export default function Home() {
 
     window.addEventListener("resize", handleResize);
     handleResize();
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -93,14 +97,25 @@ export default function Home() {
             digitBlockStyle={digitBlockStyle}
           />
         )}
+
+        <audio id="a1">
+          <source src="/sound/back-tick-107822.mp3" type="audio/mpeg" />
+        </audio>
+        <div className="mt-5">
+          {isClient && (
+            <ReactAudioPlayer
+              src={`/sound/bg-audio/${luckyBgAudioNumber}.mp3`}
+              autoPlay
+              controls
+              loop={true}
+            />
+          )}
+        </div>
         <a href="mailto:contact@gumon.io">
-          <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+          <span className="mt-5 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
             contact@gumon.io
           </span>
         </a>
-        <audio autoPlay={true} id="a1">
-          <source src="/sound/back-tick-107822.mp3" type="audio/mpeg" />
-        </audio>
       </div>
     </main>
   );
