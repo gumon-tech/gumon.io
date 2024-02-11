@@ -33,6 +33,8 @@ export default function Home() {
     getWindowDimensions()
   );
 
+  const [isMuteTick, setMuteTick] = useState(false);
+
   const [digitBlockStyle, setDigitBlockStyle] = useState({
     width: 46,
     height: 80,
@@ -62,7 +64,7 @@ export default function Home() {
   }, []);
 
   const play = () => {
-    if (isClient) {
+    if (isClient && !isMuteTick) {
       var audio: any = document.getElementById("a1");
       audio.play();
     }
@@ -89,13 +91,16 @@ export default function Home() {
         <h2 className="m-5 text-center inline-flex items-center rounded-md bg-blue-50 px-7 py-5 text-3xl font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
           {isComplete ? "WELCOME TO GUMON!" : "GUMON IS COMING SOON!"}
         </h2>
+
         {isClient && !isComplete && (
-          <FlipClockCountdown
-            onTick={play}
-            to={dayjs("2024-03-01 15:00:00.000+07:00")}
-            onComplete={() => setComplete(true)}
-            digitBlockStyle={digitBlockStyle}
-          />
+          <a href="#" onClick={() => setMuteTick(!isMuteTick)}>
+            <FlipClockCountdown
+              onTick={play}
+              to={dayjs("2024-03-01 15:00:00.000+07:00")}
+              onComplete={() => setComplete(true)}
+              digitBlockStyle={digitBlockStyle}
+            />
+          </a>
         )}
 
         <audio id="a1">
