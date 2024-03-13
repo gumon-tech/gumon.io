@@ -131,7 +131,7 @@ export default function Home() {
             <a href="#" onClick={() => setMuteTick(!isMuteTick)}>
               <FlipClockCountdown
                 onTick={play}
-                to={dayjs("2024-03-10 15:00:00.000+07:00")}
+                to={dayjs("2024-04-01 15:00:00.000+07:00")}
                 onComplete={() => setComplete(true)}
                 digitBlockStyle={digitBlockStyle}
               />
