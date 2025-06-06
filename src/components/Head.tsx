@@ -47,12 +47,11 @@ export default function Head() {
         style={{ x: xRight }}
         className="relative w-full md:w-1/2 h-[300px] md:h-auto overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#0886be] to-[#0886be] transform -skew-x-12 z-0" />
         <Image
-          src="/hero-image.jpg"
+          src="/images/mock/mock1.jpg"
           alt="Technology Illustration"
           fill
-          className="object-cover mix-blend-overlay opacity-30 z-10"
+          className="object-cover object-top z-10 transform -skew-x-12"
         />
       </motion.div>
     </section>

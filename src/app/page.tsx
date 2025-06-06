@@ -16,7 +16,7 @@ import About from "@/components/About";
 import Content from "@/components/Content";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { AnimatePresence } from "motion/react";
 import Mission from "@/components/Mission";
 import Innovation from "@/components/Innovation";
@@ -40,7 +40,15 @@ function getWindowDimensions() {
     };
   }
 }
-
+const sections = [
+  "banner",
+  "head",
+  "about",
+  "mission",
+  "content",
+  "innovation",
+  "team",
+];
 export default function Home() {
   const [isClient, setIsClient] = useState(true);
   const [isComplete, setComplete] = useState(false);
@@ -95,17 +103,54 @@ export default function Home() {
 
   //
 
+  // const containerRef = useRef(null);
+  // const [maxX, setMaxX] = useState(0);
+
+  // // หาความกว้างหน้าจอ - ความกว้างของ bar (3 = 12px)
+  // useEffect(() => {
+  //   const update = () => setMaxX(window.innerWidth - 12);
+  //   update();
+  //   window.addEventListener("resize", update);
+  //   return () => window.removeEventListener("resize", update);
+  // }, []);
+
+  // const { scrollYProgress } = useScroll({
+  //   target: containerRef,
+  //   offset: ["start start", "end end"],
+  // });
+
+  // // แปลง scrollYProgress เป็นค่าเลื่อนไปซ้าย-ขวา-ซ้าย
+  // const x = useTransform(
+  //   scrollYProgress,
+  //   [0, 0.5, 0.5, 1, 1],
+  //   [0, maxX, 0, maxX, 0]
+  // );
+
   return (
-    <main className=" dark:bg-gray-900 dark:text-white transition-colors duration-500">
+    <main className=" dark:bg-gray-900 dark:text-white transition-colors duration-500 bg-white">
       <AnimatePresence mode="wait">
-        <Navbar />
-        <Banner />
-        <Head />
-        <About />
-        <Mission />
-        <Content />
-        <Innovation />
-        <Team />
+        <div className="relative">
+          {/* Left Accent Bar */}
+
+          <motion.div
+            // style={{ x }}
+            className="absolute top-0 left-0 w-3 h-full bg-[#0886be] z-30"
+          />
+          <motion.div
+            // style={{ x }}
+            className="absolute top-0 right-0 w-3 h-full bg-[#0886be] z-30"
+          />
+
+          <Navbar />
+          <Banner />
+          <Head />
+          <About />
+          <Mission />
+          <Content />
+          <Innovation />
+          <Team />
+        </div>
+
         {/* <Contact /> */}
         <Footer />
       </AnimatePresence>

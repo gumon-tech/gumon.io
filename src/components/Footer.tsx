@@ -18,7 +18,7 @@ export default function Footer() {
 
       {/* Foreground Content */}
       <div className="relative z-10 text-center space-y-2">
-        <div className="text-lg">ติดต่อเรา: contact@gumon.io</div>
+        <div className="text-lg">Contact: contact@gumon.io</div>
         <div className="text-sm text-gray-400">
           © {new Date().getFullYear()} Gumon Technology Co., Ltd. สงวนลิขสิทธิ์
         </div>
