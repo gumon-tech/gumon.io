@@ -22,6 +22,7 @@ import Mission from "@/components/Mission";
 import Innovation from "@/components/Innovation";
 import Team from "@/components/Team";
 import Banner from "@/components/Banner";
+import Software from "@/components/Software";
 
 const luckyBgNumber = random.int(1, 16);
 const luckyBgAudioNumber = random.int(1, 10);
@@ -146,8 +147,10 @@ export default function Home() {
           <Head />
           <About />
           <Mission />
-          <Content />
+
           <Innovation />
+          <Content />
+          <Software />
           <Team />
         </div>
 
