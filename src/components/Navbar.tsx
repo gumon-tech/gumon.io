@@ -31,12 +31,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: "#head", label: "ธุรกิจ" },
-    { href: "#about", label: "เกี่ยวกับ" },
-    { href: "#mission", label: "พันธกิจ" },
-    { href: "#content", label: "เนื้อหา" },
-    { href: "#innovation", label: "นวัตกรรม" },
-    { href: "#team", label: "ทีมงาน" },
+    { href: "#head", label: "Gumon" },
+    { href: "#about", label: "About" },
+    { href: "#mission", label: "Mission" },
+    // { href: "#content", label: "เนื้อหา" },
+    { href: "#innovation", label: "Innovation" },
+    { href: "#team", label: "Team" },
   ];
 
   const handleNavClick = (href: string) => {

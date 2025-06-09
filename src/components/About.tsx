@@ -9,14 +9,18 @@ export default function About() {
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [100, 0, -50]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.5, 0.5, 0.8],
+    [0, 1, 1, 0]
+  );
+  // const y = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [1000, 0, 0, 1000]);
 
   return (
     <motion.section
       ref={ref}
       id="about"
-      style={{ opacity, y }}
+      style={{ opacity: opacity }}
       className="relative min-h-screen py-20 bg-white dark:bg-gray-900 text-center px-6 md:px-12 flex items-center justify-center overflow-hidden"
     >
       {/* Background Glow Circle */}

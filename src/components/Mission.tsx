@@ -1,10 +1,24 @@
 "use client";
 import { Lightbulb, MessageSquare, Target } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 export default function Mission() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.5, 0.5, 0.8],
+    [0, 1, 1, 0]
+  );
   return (
     <motion.section
+      ref={ref}
       id="mission"
+      style={{ opacity: opacity }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
