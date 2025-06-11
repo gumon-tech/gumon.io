@@ -85,6 +85,12 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={() => window.open("/profile/gumon-profile-2024-01.pdf")}
+            className="text-white hover:underline"
+          >
+            Document
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
