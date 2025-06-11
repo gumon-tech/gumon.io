@@ -8,14 +8,14 @@ export default function Team() {
       {
         name: "Komphet Meesab",
         position: "Chief Executive Officer",
-        image: "/images/team/human.jpg",
+        image: "/images/team/komphet.jpg",
       },
     ],
     heads: [
       {
         name: "Panitchai Chaenglek",
         position: "Head of Research and Development Division ",
-        image: "/images/team/human.jpg",
+        image: "/images/team/o.jpg",
       },
       {
         name: "Kritsada Suriyachan",

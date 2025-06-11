@@ -33,8 +33,11 @@ export default function Head() {
         className="w-full md:w-1/2 flex flex-col justify-center px-6 py-12 text-center md:text-left z-20"
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          The Technology Provider
+          Corporate GUMON TECHNOLOGY
         </h1>
+        <h3 className="text-xl md:text-xl font-bold mb-4">
+          The Technology Provider
+        </h3>
         <p className="text-lg mb-6">
           We specialize in groundbreaking R&D and software consulting. Plus, we
           offer tailored training, seminars, and events to keep you ahead in the

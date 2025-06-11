@@ -24,6 +24,8 @@ import Team from "@/components/Team";
 import Banner from "@/components/Banner";
 import Software from "@/components/Software";
 import Dks from "@/components/Dks";
+import SoftwareSecondPart from "@/components/SoftwareSecondPart";
+import DksSecondPart from "@/components/DksSecondPart";
 
 const luckyBgNumber = random.int(1, 16);
 const luckyBgAudioNumber = random.int(1, 10);
@@ -152,7 +154,9 @@ export default function Home() {
           <Innovation />
           <Content />
           <Software />
+          <SoftwareSecondPart />
           <Dks />
+          <DksSecondPart />
           <Team />
         </div>
 

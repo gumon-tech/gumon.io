@@ -19,8 +19,6 @@ export default function Mission() {
       ref={ref}
       id="mission"
       style={{ opacity: opacity }}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="min-h-screen py-20 bg-white dark:bg-gray-900 text-center px-4 flex flex-col items-center justify-center"

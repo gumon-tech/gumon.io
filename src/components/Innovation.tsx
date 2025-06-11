@@ -1,16 +1,28 @@
 "use client";
 import { BoxIcon, Lightbulb, Target } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
+import { useRef } from "react";
 export default function Innovation() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.4, 0.6, 0.8],
+    [0, 1, 1, 0]
+  );
   return (
     <motion.section
+      ref={ref}
       id="innovation"
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      style={{ opacity: opacity }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen py-10 bg-gray-50 dark:bg-gray-800 text-center px-4 flex flex-col"
+      className="min-h-screen py-10 bg-white text-center px-4 flex flex-col"
     >
       {/* ส่วนหัว */}
       <div className="text-white max-w-5xl p-5 mx-auto text-center bg-[#0886be] bg-opacity-75">

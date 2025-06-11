@@ -1,13 +1,25 @@
 "use client";
 import { BoxIcon, Lightbulb, Target } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
+import { useRef } from "react";
 export default function Content() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.3, 0.4, 0.6, 0.8],
+    [0, 1, 1, 0]
+  );
   return (
     <motion.section
+      ref={ref}
       id="content"
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      style={{ opacity: opacity }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="min-h-screen py-10 bg-white text-center px-4 flex flex-col"
@@ -23,7 +35,7 @@ export default function Content() {
             </h2>
 
             {/* Card 1 */}
-            <div className="bg-gray-100 rounded-lg p-4 flex gap-6 items-start shadow-md">
+            <div className="bg-gray-100 rounded-lg p-4 flex gap-6 items-start shadow-md hover:shadow-xl transition-shadow duration-300">
               <div className="min-w-[40px]">
                 <Image
                   src="/images/icon-assets/application.png"
@@ -44,7 +56,7 @@ export default function Content() {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-gray-100 rounded-lg p-4 flex gap-6 items-start shadow-md">
+            <div className="bg-gray-100 rounded-lg p-4 flex gap-6 items-start shadow-md hover:shadow-xl transition-shadow duration-300">
               <div className="min-w-[40px]">
                 <Image
                   src="/images/icon-assets/api.png"
@@ -66,7 +78,7 @@ export default function Content() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-gray-100 rounded-lg p-4 flex gap-6 items-start shadow-md">
+            <div className="bg-gray-100 rounded-lg p-4 flex gap-6 items-start shadow-md hover:shadow-xl transition-shadow duration-300">
               <div className="min-w-[40px]">
                 <Image
                   src="/images/icon-assets/data_stream.png"
@@ -96,9 +108,9 @@ export default function Content() {
               time and costs.
             </p> */}
 
-            <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex flex-col md:flex-row gap-6 ">
               {/* Card 1 */}
-              <div className="bg-sky-600 text-white rounded-lg p-6 flex-1 shadow-md">
+              <div className="bg-sky-600 text-white rounded-lg p-6 flex-1 shadow-md hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 mx-auto mb-4">
                   <Image
                     src="/images/icon-assets/savetime.png"
@@ -119,7 +131,7 @@ export default function Content() {
               </div>
 
               {/* Card 2 */}
-              <div className="bg-sky-600 text-white rounded-lg p-6 flex-1 shadow-md">
+              <div className="bg-sky-600 text-white rounded-lg p-6 flex-1 shadow-md hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 mx-auto mb-4">
                   <Image
                     src="/images/icon-assets/trophy.png"
