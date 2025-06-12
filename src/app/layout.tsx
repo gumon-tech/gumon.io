@@ -5,8 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "WHAT IS GUMON?",
-  description: "Welcome to GUMON!",
+  title: "GUMON TECHNOLOGY",
+  description:
+    "We specialize in groundbreaking R&D and software consulting. Plus, we offer tailored training, seminars, and events to keep you ahead in the digital realm. Join us for innovation and insight that drives success.",
   icons: {
     icon: "/logo/16.png",
   },
