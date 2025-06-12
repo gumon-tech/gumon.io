@@ -13,6 +13,11 @@ export default function Team() {
     ],
     heads: [
       {
+        name: "Komphet Meesab",
+        position: "Chief Executive Officer",
+        image: "/images/team/komphet.jpg",
+      },
+      {
         name: "Panitchai Chaenglek",
         position: "Head of Research and Development Division ",
         image: "/images/team/o.jpg",
@@ -20,13 +25,13 @@ export default function Team() {
       {
         name: "Kritsada Suriyachan",
         position: "Head of Technology Solutions Division ",
-        image: "/images/team/human.jpg",
+        image: "/images/team/newDev.jpg",
       },
-      {
-        name: "Patiparn Panmee",
-        position: "Head of Digital and Technology Social Network Division",
-        image: "/images/team/human.jpg",
-      },
+      // {
+      //   name: "Patiparn Panmee",
+      //   position: "Head of Digital and Technology Social Network Division",
+      //   image: "/images/team/human.jpg",
+      // },
       {
         name: "Niti Kosutao",
         position: "Backend Developer",
@@ -40,7 +45,7 @@ export default function Team() {
       {
         name: "Pongsathon Tungkanakul",
         position: "Frontend Developer",
-        image: "/images/team/human.jpg",
+        image: "/images/team/peach.jpg",
       },
     ],
   };
@@ -69,9 +74,9 @@ export default function Team() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12 sm:mb-16">
           Our Team
         </h2>
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 justify-center">
           {/* CEO Section (Left, Largest) */}
-          <div className="lg:w-1/2 flex justify-center">
+          {/* <div className="lg:w-1/2 flex justify-center">
             {teamMembers.ceo.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -100,7 +105,7 @@ export default function Team() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </div> */}
 
           {/* Heads and Staff Section (Right) */}
           <div className="lg:w-1/2 flex flex-col gap-8 justify-center lg:justify-start">
@@ -125,7 +130,7 @@ export default function Team() {
                     className="object-cover object-top"
                   />
 
-                  <div className="absolute bottom-0 left-0 right-0 px-6 py-2 text-center bg-[#0886be]">
+                  <div className="absolute bottom-0 left-0 right-0 px-6 py-2 text-center bg-[#0886be] h-[80px] md:h[90px]">
                     <h3 className="text-sm lg:text-base font-semibold text-white">
                       {member.name}
                     </h3>
