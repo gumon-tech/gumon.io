@@ -11,7 +11,7 @@ export default function About() {
 
   const opacity = useTransform(
     scrollYProgress,
-    [0.3, 0.5, 0.5, 0.8],
+    [0.2, 0.4, 0.6, 0.9],
     [0, 1, 1, 0]
   );
   // const y = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [1000, 0, 0, 1000]);

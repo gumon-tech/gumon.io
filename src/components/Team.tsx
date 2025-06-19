@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "motion/react";
 import Image from "next/image";
+// @ts-ignore
+import { Textfit } from "react-textfit";
 export default function Team() {
   // Team members data
   const teamMembers = {
@@ -121,7 +123,7 @@ export default function Team() {
                   viewport={{ once: true }}
                   variants={cardVariants}
                   whileHover="hover"
-                  className="relative h-64 sm:h-72 bg-white dark:bg-gray-800 shadow-md w-[80%] md:w-[100%] lg:w-[100%] "
+                  className="relative h-64 sm:h-72 bg-white dark:bg-gray-800 shadow-md w-[55%] md:w-[100%] lg:w-[100%] "
                 >
                   <Image
                     src={member.image}
@@ -130,13 +132,25 @@ export default function Team() {
                     className="object-cover object-top"
                   />
 
-                  <div className="absolute bottom-0 left-0 right-0 px-6 py-2 text-center bg-[#0886be] h-[80px] md:h[90px]">
-                    <h3 className="text-sm lg:text-base font-semibold text-white">
+                  <div className="absolute bottom-0 left-0 right-0 px-6 py-2 text-center bg-[#0886be] h-[80px] md:h-[90px]">
+                    <Textfit
+                      mode="single"
+                      max={18}
+                      className="text-white font-semibold leading-tight"
+                      style={{ height: "24px" }}
+                    >
                       {member.name}
-                    </h3>
-                    <p className="text-sm lg:text-base text-gray-200 mt-2">
+                    </Textfit>
+                    <Textfit
+                      mode="multi"
+                      min={10}
+                      max={16}
+                      maxLines={2}
+                      className="text-gray-200 leading-snug mt-1"
+                      style={{ height: "40px" }}
+                    >
                       {member.position}
-                    </p>
+                    </Textfit>
                   </div>
                 </motion.div>
               ))}
