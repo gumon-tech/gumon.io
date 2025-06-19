@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import Image from "next/image";
 // @ts-ignore
 import { Textfit } from "react-textfit";
@@ -53,7 +53,7 @@ export default function Team() {
   };
 
   // Animation variants for cards
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: any) => ({
       opacity: 1,
