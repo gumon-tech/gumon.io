@@ -48,7 +48,6 @@ export default function Home() {
           <Team />
         </div>
 
-        {/* <Contact /> */}
         <Footer />
       </AnimatePresence>
     </main>

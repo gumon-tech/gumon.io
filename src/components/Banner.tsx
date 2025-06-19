@@ -1,58 +1,15 @@
 import { ArrowDown, ArrowDownCircle } from "lucide-react";
-import { motion, useInView, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  Variants,
+} from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Banner() {
-  // const ref = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["start end", "end start"],
-  // });
-
-  // const leftX = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.4, 0.6, 1],
-  //   [-1000, 0, 0, -1000]
-  // );
-  // const rightX = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.4, 0.6, 1],
-  //   [1000, 0, 0, 1000]
-  // );
-  // const scale = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.3, 0.6, 1],
-  //   [100, 1, 1, 100]
-  // );
-
-  // return (
-  //   <section
-  //     ref={ref}
-  //     id="banner"
-  //     className="relative min-h-screen flex justify-center items-center overflow-hidden bg-[#0886be]"
-  //   >
-  //     {/* ม่านซ้าย */}
-  //     <motion.div
-  //       style={{ x: leftX }}
-  //       className="absolute left-0 top-0 h-full w-1/2 bg-[#0886be] z-10"
-  //     />
-  //     {/* ม่านขวา */}
-  //     <motion.div
-  //       style={{ x: rightX }}
-  //       className="absolute right-0 top-0 h-full w-1/2 bg-[#0886be] z-10"
-  //     />
-
-  //     {/* ตัวหนังสือ */}
-  //     <motion.div
-  //       style={{ scale }}
-  //       className="relative z-20 text-white text-6xl sm:text-7xl md:text-9xl font-bold text-center"
-  //     >
-  //       GUMON TECHNOLOGY
-  //     </motion.div>
-  //   </section>
-  // );
-
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -75,7 +32,7 @@ export default function Banner() {
   };
 
   // Animation for link
-  const linkVariants = {
+  const linkVariants: Variants = {
     hover: {
       scale: 1.1,
       y: -5,
@@ -88,7 +45,7 @@ export default function Banner() {
     },
   };
   // Animation for arrow (continuous bounce)
-  const arrowVariants = {
+  const arrowVariants: Variants = {
     animate: {
       y: [0, 5, 0],
       transition: {
