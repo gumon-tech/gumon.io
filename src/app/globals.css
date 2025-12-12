@@ -28,8 +28,11 @@
   );
 } */
 
-html {
+html,
+body {
   scroll-behavior: smooth;
+  /* offset for sticky navbar so scrolled-to sections aren't hidden */
+  scroll-padding-top: 64px;
 }
 
 .gumon-svg {
