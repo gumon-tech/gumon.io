@@ -80,6 +80,10 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(link.href);
+              }}
               className="text-white hover:underline"
             >
               {link.label}

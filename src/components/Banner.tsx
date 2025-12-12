@@ -89,7 +89,7 @@ export default function Banner() {
 
       {/* Scroll Down Link with Arrow */}
       <motion.a
-        href="#contact"
+        href="#head"
         onClick={scrollToContact}
         variants={linkVariants}
         whileHover="hover"

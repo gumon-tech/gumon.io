@@ -49,6 +49,71 @@ export default function Team() {
         position: "Frontend Developer",
         image: "/images/team/peach.jpg",
       },
+      {
+        name: "Poomchanok Sangprasert",
+        position: "Frontend Developer",
+        image: "/images/team/Pea.jfif",
+      },
+      {
+        name: "Sorawit Poemponsri",
+        position: "UX/UI Designer",
+        image: "/images/team/F.jpg",
+      },
+      {
+        name: "Sittipong Sainum",
+        position: "Digital and Technology Social Network Officer",
+        image: "/images/team/ken.jpg",
+      },
+      {
+        name: "Suvapat Pimklang",
+        position: "Mobile Developer",
+        image: "/images/team/Stamp.jpg",
+      },
+      {
+        name: "Witsawachit Wangklang",
+        position: "Project Manager",
+        image: "/images/team/Mark.jpg",
+      },
+      {
+        name: "Noppon Changchai",
+        position: "Media Staff",
+        image: "/images/team/Nop.jpg",
+      },
+      {
+        name: "Pramin Wangwun",
+        position: "Fullstack Developer",
+        image: "/images/team/Owen.png",
+      },
+      {
+        name: "Thanathorn Chulay",
+        position: "Fullstack Developer",
+        image: "/images/team/Petch.png",
+      },
+      {
+        name: "Parichat Hongsa",
+        position: "Fullstack Developer",
+        image: "/images/team/Donut.png",
+      },
+      {
+        name: "Irin Maysasittiroj",
+        position: "Fullstack Developer",
+        image: "/images/team/View.png",
+      },
+      {
+        name: "Nuntakarn Paonariang",
+        position: "Business Analyst",
+        image: "/images/team/Pure.png",
+      },
+      {
+        name: "Suriya Thanee",
+        position: "Media Staff",
+        image: "/images/team/Pjent.png",
+      },
+      {
+        name: "Wichayoot  Wongsason",
+        position: "Media Staff",
+        image: "/images/team/Shi-ryu.jpg",
+      },
     ],
   };
 
@@ -77,38 +142,6 @@ export default function Team() {
           Our Team
         </h2>
         <div className="flex flex-col lg:flex-row gap-8 justify-center">
-          {/* CEO Section (Left, Largest) */}
-          {/* <div className="lg:w-1/2 flex justify-center">
-            {teamMembers.ceo.map((member, index) => (
-              <motion.div
-                key={member.name}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={cardVariants}
-                whileHover="hover"
-                className="relative h-72 md:h-96 lg:h-screen bg-white dark:bg-gray-800 shadow-lg w-[80%] md:w-[50%] lg:w-[70%] "
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-top"
-                />
-
-                <div className="absolute bottom-0 left-0 right-0 px-6 py-2 text-center bg-[#0886be]">
-                  <h3 className="text-lg lg:text-2xl font-semibold text-white">
-                    {member.name}
-                  </h3>
-                  <p className="text-base lg:text-lg text-gray-200 mt-2">
-                    {member.position}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div> */}
-
           {/* Heads and Staff Section (Right) */}
           <div className="lg:w-1/2 flex flex-col gap-8 justify-center lg:justify-start">
             {/* Heads Section (Right Top) */}
@@ -123,13 +156,13 @@ export default function Team() {
                   viewport={{ once: true }}
                   variants={cardVariants}
                   whileHover="hover"
-                  className="relative h-64 sm:h-72 bg-white dark:bg-gray-800 shadow-md w-[55%] md:w-[100%] lg:w-[100%] "
+                  className="relative h-72 sm:h-72 bg-white dark:bg-gray-800 shadow-md w-[55%] md:w-[100%] lg:w-[90%] "
                 >
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-[50%_40%]"
                   />
 
                   <div className="absolute bottom-0 left-0 right-0 px-6 py-2 text-center bg-[#0886be] h-[80px] md:h-[90px]">
